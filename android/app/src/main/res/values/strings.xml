@@ -1,0 +1,17 @@
+<resources>
+    <string name="clear_reminders">Clear reminders</string>
+    <string name="start_scanning">Start scanning</string>
+    <string name="stop_scanning">Stop scanning</string>
+    <string name="set_reminders">Set reminders</string>
+    <string name="update_daily_usage">Update daily usage</string>
+    <string name="get_cap_version">Get cap version</string>
+    <string name="get_mac_address">Get mac address</string>
+    <string name="forget_cap">Forget cap</string>
+    <string name="no_scanning">No scanning</string>
+    <string name="stop_scanning_events_cap">Stop scanning cap events</string>
+    <string name="forget_cap_explanation">Forget cap, now we can scanning and connect to another cap (or the same)</string>
+    <string name="cap_version">Cap version: \t</string>
+    <string name="scanning">Scanning</string>
+    <string name="error_scanning">Error with scanning because the: \t</string>
+    <string name="mac_address">Cap mac address: \t</string>
+</resources>
