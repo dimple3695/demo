@@ -6,15 +6,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.milton.samplesdkflutter.sdk_impl.CapLogsImplEvents;
 import com.water.water_io_sdk.ble.entities.DeviceLog;
@@ -27,9 +22,9 @@ import com.water.water_io_sdk.reminder_local_push.entities.Reminder;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
-import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
 public class MainActivity extends FlutterActivity {
@@ -46,6 +41,15 @@ public class MainActivity extends FlutterActivity {
         askBatteryOptimizations();
         initWIOAppModel();
         loadEventsObservers();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                boolean success = startScanning();
+
+                Log.v("LOG", "SUCcESS ? - " + success);
+            }
+        }, 1000);
     }
 
 
@@ -76,7 +80,6 @@ public class MainActivity extends FlutterActivity {
     }
 
 
-
     // cancel all cap's reminders
     private void clearRemindersCap() {
         CapConfig.getInstance().reminderConfig().resetReminders();
@@ -103,7 +106,6 @@ public class MainActivity extends FlutterActivity {
     private void updateDailyUsageCap() {
         CapConfig.getInstance().updateDailyUsage(3, 2);
     }
-
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -143,6 +145,7 @@ public class MainActivity extends FlutterActivity {
                     mTextViewCapStatus.append("\n\n");*/
                 });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -166,7 +169,7 @@ public class MainActivity extends FlutterActivity {
                     killed = true;
                 }
             }
-            if (!killed && grantResults.length!=0)
+            if (!killed && grantResults.length != 0)
                 startScanning();
             else
                 Toast.makeText(this, "Permission denied, scan failed", Toast.LENGTH_SHORT).show();
@@ -204,7 +207,7 @@ public class MainActivity extends FlutterActivity {
     }
 
     private void updateScanStatusText(String msg) {
-        Log.e("msg",msg);
+        Log.e("msg", msg);
     }
 
     //stop scanning, the app would not response to cap events
@@ -225,7 +228,7 @@ public class MainActivity extends FlutterActivity {
     }
 
     private void updateInfoText(String msg) {
-        Log.e("msg",msg);
+        Log.e("msg", msg);
     }
 
     private String getCapVersion() {
