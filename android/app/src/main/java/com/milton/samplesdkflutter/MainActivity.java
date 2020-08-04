@@ -59,7 +59,7 @@ public class MainActivity extends FlutterActivity {
                 //Add if you want to support push messages from Water.io server
 //                .setWIOServerPushImp(ServerPushImpl.class)
                 .setDefaultProcedureDevice(DefaultCapProcedure.class)
-                .setFirstProcedureDevice(FiresProcedure.class)
+                .setFirstProcedureDevice(FirstConnectionCapProcedure.class)
                 /*Add this impl 'setWIODeviceEventsImp' for reading always events in background and foreground *only for business logic */
                 .setWIODeviceEventsImp(CapLogsImplEvents.class)
                 .build();

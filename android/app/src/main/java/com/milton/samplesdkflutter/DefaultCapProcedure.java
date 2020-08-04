@@ -1,6 +1,7 @@
 package com.milton.samplesdkflutter;
 
 import com.water.water_io_sdk.ble.connection.command.SingleCommand;
+import com.water.water_io_sdk.ble.connection.command.StartBlinkCommand;
 import com.water.water_io_sdk.ble.connection.procedures.abstractions.ProcedureAbstractDefaultConnection;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class DefaultCapProcedure extends ProcedureAbstractDefaultConnection {
 //        listCommands.add(new PlaySoundCommand(true));
 
 //         Start blinking cap
-//        listCommands.add(new StartBlinkCommand());
+        listCommands.add(new StartBlinkCommand());
         return listCommands;
     }
 

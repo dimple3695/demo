@@ -24,7 +24,7 @@ import java.util.ArrayList;
 // - PlaySoundCommand
 
 
-public class FiresProcedure extends ProcedureAbstractFirstConnection {
+public class FirstConnectionCapProcedure extends ProcedureAbstractFirstConnection {
     @Override
     public ArrayList<SingleCommand> initCommands() {
         ArrayList<SingleCommand> singleCommands = new ArrayList<>();
